@@ -1,47 +1,73 @@
-# 🚀 Problix
-## Where problems turn into powerful product ideas
-
-## ✨ Overview
-
-**Problix** converts a plain-English problem statement into a **structured MVP blueprint**.
-
-It helps founders, developers, and product thinkers move from *idea confusion* to *execution clarity* by generating:
-
-- Clear problem analysis  
-- Actionable product ideas & positioning  
-- Feature prioritization  
-- Recommended tech stack  
-- A phased MVP roadmap  
-
-You can run Problix entirely with **offline mock intelligence** or switch to **live AI** powered by Google Gemini.
+# 🚀 Problix  
+### Turning real-world problems into clear product ideas 
 
 ---
 
-## 🧠 What Problix Generates
+## ✨ What is Problix?
 
-From a single input problem:
+**Problix** is a product-thinking tool that helps you go from a **raw problem statement** to a **clear, structured MVP plan**.
 
-- 🔍 **Problem Analysis** – identifies the real pain point  
-- 💡 **Product Ideation** – value proposition & differentiation  
-- 🧩 **Feature Breakdown** – core, advanced, and AI features  
-- 🛠 **Tech Stack Suggestions** – frontend, backend, infra  
-- 🗺 **MVP Roadmap** – step-by-step execution plan  
+Instead of guessing:
+- *What should I build?*
+- *Which features matter?*
+- *Is this idea even viable?*
+
+Problix gives you **clarity before execution**.
+
+You describe a problem in plain English — Problix breaks it down into something you can actually build.
 
 ---
 
-## 🏗 Architecture
+## 🧠 What Problix Does
 
-- **Frontend**: Next.js App Router with a responsive UI
-- **Backend**: FastAPI with modular AI pipelines
-- **AI Layer**: Prompt-driven generators (mock or Gemini)
-- **Config-based**: Switch modes without code changes
+From a single problem input, Problix generates:
+
+- 🔍 **Problem Analysis**  
+  Understand the real pain point and its context
+
+- 💡 **Product Idea & Positioning**  
+  What to build, for whom, and why it matters
+
+- 🧩 **Feature Breakdown**  
+  Core features, advanced features, and AI-driven ideas
+
+- 🛠 **Tech Stack Suggestions**  
+  Practical recommendations for frontend, backend, and tooling
+
+- 🗺 **MVP Roadmap**  
+  A phased plan to move from idea → working product
+
+All outputs are structured, readable, and easy to act on.
+
+---
+
+## 🎯 Who is this for?
+
+Problix is useful for:
+- Founders validating an idea
+- Developers planning side projects
+- Product thinkers structuring MVPs
+- Teams stuck at the “idea chaos” stage
+
+If you’ve ever had a good idea but didn’t know **where to start**, Problix is for you.
+
+---
+
+## 🏗 How it Works (High Level)
+
+- A clean **Next.js frontend** collects the problem input
+- A **FastAPI backend** orchestrates the analysis
+- Modular AI pipelines generate each output step
+- Prompt-driven design keeps logic transparent and customizable
+
+Problix can run entirely using **mock intelligence** for safe testing, or switch to **real AI** when configured.
 
 ---
 
 ## 🧰 Tech Stack
 
 **Frontend**
-- Next.js 14 (React)
+- Next.js 14 (App Router)
 - Tailwind CSS
 
 **Backend**
@@ -49,15 +75,15 @@ From a single input problem:
 - Pydantic
 
 **AI**
-- Google Gemini (`google-genai`)
-- Prompt-based generation
+- Google Gemini via `google-genai`
+- Prompt-based generation system
 
 ---
 
 ## 📁 Project Structure
 
 backend/
-main.py # FastAPI app, CORS, routes
+main.py # FastAPI app & routes
 ai/
 problem_parser.py # Problem analysis
 idea_generator.py # Product ideation
@@ -70,11 +96,12 @@ schemas/ # Pydantic models
 frontend/
 app/ # Next.js App Router
 components/ # UI components
-lib/ # API helpers
+lib/ # API helpers & config
+
 
 ---
 
-## ⚡ Quick Start
+## ⚡ Getting Started (Local Setup)
 
 ### Prerequisites
 - Python **3.10+**
@@ -98,10 +125,10 @@ AI_MODE=mock
 Run backend:
 
 uvicorn backend.main:app --reload --port 8000
-Swagger UI:
+API Docs:
 
 http://127.0.0.1:8000/docs
-****▶ Frontend Setup*****
+▶ Frontend Setup
 cd frontend
 pnpm install   # or npm install / yarn
 Create frontend/.env.local:
@@ -113,32 +140,11 @@ pnpm dev
 Open:
 
 http://localhost:3000
-🔧 Configuration
-Backend
-AI_MODE: mock | live
+🔌 API Endpoints
+All endpoints use POST and accept a simple request body.
 
-GOOGLE_API_KEY / GEMINI_API_KEY: required for live AI
+Endpoints
 
-GEMINI_MODEL: default gemini-2.5-flash
-
-PROMPT_DIR: optional absolute path for custom prompts
-
-Frontend
-NEXT_PUBLIC_API_BASE: backend base URL
-
-🧠 Prompt System
-Default prompts:
-
-backend/ai/prompts/
-To customize safely:
-
-Copy prompts to another folder
-
-Set PROMPT_DIR to its absolute path
-
-Problix will automatically load them
-
-🔌 API Endpoints (POST)
 /analyze-problem
 
 /generate-idea
@@ -149,8 +155,43 @@ Problix will automatically load them
 
 /generate-mvp-roadmap
 
-Example request:
+Example request
 
 {
   "problem": "Your problem statement here"
 }
+🧠 Prompt System
+Prompt templates live in:
+
+backend/ai/prompts/
+To customize behavior:
+
+Copy prompts to another folder
+
+Set PROMPT_DIR in backend/.env
+
+Problix will automatically load your custom prompts
+
+This keeps experimentation safe and flexible.
+
+🔐 Security & Safety
+API keys are never committed
+
+.env files are gitignored
+
+Mock mode is enabled by default
+
+Live AI usage requires explicit configuration
+
+🌱 Future Direction
+Some ideas being explored:
+
+Saving & comparing generated ideas
+
+Exporting results to PDF / Notion
+
+Idea scoring & prioritization
+
+Collaboration features
+
+Problix exists to make the early stage of building products clearer, calmer, and more intentional.
