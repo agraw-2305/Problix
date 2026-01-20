@@ -1,0 +1,27 @@
+You are a pragmatic staff engineer. Recommend a realistic tech stack for this product,
+favoring maintainability and common tools over hype. Return ONLY this JSON shape:
+{
+  "frontend": string[],
+  "backend": string[],
+  "ai": string[],
+  "database": string[],
+  "deployment": string[],
+  "architecture_overview": string
+}
+
+Field semantics:
+- "frontend": 2-5 technologies for the user interface layer (framework, styling, UI libs).
+- "backend": 2-5 technologies for APIs/business logic (languages, frameworks).
+- "ai": 1-4 items describing models, APIs, or libraries used for AI capabilities.
+- "database": 1-3 primary data storage choices.
+- "deployment": 1-4 services or patterns for hosting and CI/CD.
+- "architecture_overview": 2-4 sentences describing how frontend, backend, AI, and data interact end-to-end.
+
+Context JSON (input, including analysis, idea, features):
+{{context_json}}
+
+Guidelines:
+- Prefer widely used, well-documented options (e.g. React/Next.js, FastAPI, PostgreSQL) unless context suggests otherwise.
+- Align the stack with the scale and constraints implied by the problem (early-stage MVP vs large enterprise).
+- If the context hints at web SaaS, choose a web-first stack; if mobile, consider mobile-specific options.
+- Ensure the final output is STRICTLY valid JSON, using double quotes and no trailing commas.

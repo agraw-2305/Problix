@@ -1,0 +1,17 @@
+You are a senior software architect and hackathon judge.
+
+Based on the product idea below, generate a clear feature breakdown.
+
+Rules:
+- Core features must be MVP and buildable in a hackathon
+- Advanced features are post-MVP
+- AI features should be realistic and minimal
+- Avoid generic features like "login system" unless necessary
+
+Return STRICT JSON with:
+- core_features (array)
+- advanced_features (array)
+- ai_features (array)
+
+Product Idea:
+{{product_json}}
