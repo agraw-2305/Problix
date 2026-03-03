@@ -36,7 +36,7 @@ PROMPT_PATH: Path = (
 def generate_tech_stack(context: dict) -> TechStack:
     """
     Generate recommended tech stack.
-    Uses mock data if AI_MODE=mock, otherwise calls Gemini.
+    Uses mock data if AI_MODE=mock, otherwise calls Gemini models.
     """
 
     # 🧠 MOCK MODE
